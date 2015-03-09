@@ -1,12 +1,12 @@
-# AzureMobileSpark
+﻿# AzureMobileSpark
 Library for abstracting Azure Mobile Services REST Api for the Spark.Core.
 
-Resources
-*********
+<a name="resources" />
+## Resources ##
 https://msdn.microsoft.com/en-us/library/azure/jj710108.aspx
 
-Phase
-*****
+<a name="phase" />
+## Phase ##
 V1 (Ease of Interaction with Mobile Service Operations) - Login, Mobile Service Functionality, user required to build JSON string
 	azure.insert("Table", valueString);
 V2 (Data Enhancement) - User builds key dictionary, provide simpler posting of data 
@@ -14,8 +14,8 @@ V2 (Data Enhancement) - User builds key dictionary, provide simpler posting of d
 	azure.insertdata("table", dictionary);
 
 
-Requirements
-************
+<a name="requirements" />
+## Requirements ##
 Functionality - Create, Read, Insert, Delete handled using TCPClient
 	input(table, payload)
 * Azure string builder - abstracted away to create connections to service
@@ -24,8 +24,10 @@ Functionality - Create, Read, Insert, Delete handled using TCPClient
 Configuration - Mobile Server address and Mobile Service
 
 
-Implementation
-**************
+<a name="implementation" />
+## Implementation ##
+
+````C#
 #include "Azure/AzureMobileServices.h"
  
 AzureMobileServices azure = AzureMobileServices();
@@ -50,4 +52,4 @@ void sendDataToAzure(String message) {
 // azure.insert(table, object) - using SparkJson/SparkJson.h
 azure.insert("Table1", "{\"text\":\"" + message +"\}");
 }
-
+````
