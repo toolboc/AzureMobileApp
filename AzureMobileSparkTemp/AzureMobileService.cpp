@@ -13,10 +13,10 @@ uint8_t AzureMobileService::create(String table, String values){
     blinkOnboardLEDonFail();
     _client.println("POST /tables/" + table + " HTTP/1.1"); 
     _client.println("Host: " + mydomain);
-    //if (_azureKeyValue != "")
-    //{
-    //    _client.println("X-ZUMO-APPLICATION: " + _azureKeyValue);
-    //}
+    if (_azureKeyValue != "")
+    {
+        _client.println("X-ZUMO-APPLICATION: " + _azureKeyValue);
+    }
     _client.println("Content-Type: application/json");
     _client.print("Content-Length: ");
     _client.println(values.length());
