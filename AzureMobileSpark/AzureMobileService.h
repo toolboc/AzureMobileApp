@@ -13,6 +13,6 @@ class AzureMobileService {
         void configure(String, String);
         uint8_t create(String, String);
         String read(String);
-        uint8_t update(String, String);
+        uint8_t update(String, String, String);
         uint8_t destroy(String, String);
 };

@@ -63,12 +63,58 @@ String AzureMobileService::read(String table) {
     return response.body;
 }
 
-uint8_t AzureMobileService::update(String, String) {
+uint8_t AzureMobileService::update(String table, String itemId, String values) {
     
-    return 0;
+    HttpClient http;
+    
+    http_header_t headers[] = {
+        { "X-ZUMO-APPLICATION", _azureKeyChar },
+        { "Content-Type", "application/json" },
+        { NULL, NULL } // NOTE: Always terminate headers with NULL
+    };
+    
+    http_request_t request;
+    http_response_t response;
+    
+    request.hostname = _domainString;
+    request.port = 80;
+    request.path = "/tables/" + table + "/" + itemId;
+    request.body = values;
+
+    http.patch(request, response, headers);
+    Serial.print("Application>\tResponse status: ");
+    Serial.println(response.status);
+
+    Serial.print("Application>\tHTTP Response Body: ");
+    Serial.println(response.body);
+
+    return response.status;
 }
 
-uint8_t AzureMobileService::destroy(String, String) {
-    return 0;
+uint8_t AzureMobileService::destroy(String table, String itemId) {
+        
+    HttpClient http;
+    
+    http_header_t headers[] = {
+        { "X-ZUMO-APPLICATION", _azureKeyChar },
+        { "Content-Type", "application/json" },
+        { NULL, NULL } // NOTE: Always terminate headers with NULL
+    };
+    
+    http_request_t request;
+    http_response_t response;
+    
+    request.hostname = _domainString;
+    request.port = 80;
+    request.path = "/tables/" + table + "/" + itemId;
+
+    http.del(request, response, headers);
+    Serial.print("Application>\tResponse status: ");
+    Serial.println(response.status);
+
+    Serial.print("Application>\tHTTP Response Body: ");
+    Serial.println(response.body);
+
+    return response.status;
 }
 

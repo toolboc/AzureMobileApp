@@ -30,6 +30,7 @@ void loop() {
     digitalWrite(led, HIGH);
     
     String table = "Data";
+    String itemId = "1334FB57-293F-4941-BC12-7704D09B9C82";
     
     Serial.println("**************************************************************");
     Serial.println("Publishing data from buffer to AMS");
@@ -40,6 +41,17 @@ void loop() {
     Serial.println("Reading data from " + table);
     Serial.println("**************************************************************");
     String queryPayload = ams.read("Data");
+    
+    Serial.println("**************************************************************");
+    Serial.println("Updating itemId " + itemId + "in " + table);
+    Serial.println("**************************************************************");
+    snprintf(buffer, sizeof(buffer), "{\"Value1\":\"4\", \"Value2\":\"5\",\"Value\":\"6\"}");
+    ams.update(table, itemId, buffer);
+    
+    Serial.println("**************************************************************");
+    Serial.println("Deleting itemId " + itemId + "in " + table);
+    Serial.println("**************************************************************");
+    ams.destroy(table, itemId);
 
     digitalWrite(led, LOW);
 }
