@@ -35,21 +35,21 @@ void loop() {
     Serial.println("**************************************************************");
     Serial.println("Publishing data from buffer to AMS");
     Serial.println("**************************************************************");
-    ams.create("Data", buffer);
+    ams.create(table, buffer);
     
     Serial.println("**************************************************************");
     Serial.println("Reading data from " + table);
     Serial.println("**************************************************************");
-    String queryPayload = ams.read("Data");
+    String queryPayload = ams.read(table);
     
     Serial.println("**************************************************************");
-    Serial.println("Updating itemId " + itemId + "in " + table);
+    Serial.println("Updating itemId " + itemId + " in " + table);
     Serial.println("**************************************************************");
     snprintf(buffer, sizeof(buffer), "{\"Value1\":\"4\", \"Value2\":\"5\",\"Value\":\"6\"}");
     ams.update(table, itemId, buffer);
     
     Serial.println("**************************************************************");
-    Serial.println("Deleting itemId " + itemId + "in " + table);
+    Serial.println("Deleting itemId " + itemId + " in " + table);
     Serial.println("**************************************************************");
     ams.destroy(table, itemId);
 
