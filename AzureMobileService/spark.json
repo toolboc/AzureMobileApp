@@ -1,7 +1,7 @@
 {
     "name": "AzureMobileService",
     "version": "0.0.1",
-    "author": "Brian Sherwin <brian.sherwin@microsoft.com>",
+    "author": "Brian Sherwin <github:bsherwin>; Paul DeCarlo <github:toolboc>; Bill Fink",
     "license": "GPL",
     "description": "Simply getting data to Azure Mobile Services"
 }
