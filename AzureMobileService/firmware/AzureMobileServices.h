@@ -1,6 +1,4 @@
 #include "application.h"
-
-#define NAN 999999
 class AzureMobileService {
     private:
         String _azureServiceName;
