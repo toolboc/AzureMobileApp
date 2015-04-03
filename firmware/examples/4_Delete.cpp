@@ -2,7 +2,7 @@
 #include "HttpClient/HttpClient.h"
 
 // This #include statement was automatically added by the Spark IDE.
-#include "AzureMobileService.h"
+#include "AzureMobileService/AzureMobileService.h"
 
 #define MYSERVICE "myservicename"
 #define MYKEY "myservicekey"
