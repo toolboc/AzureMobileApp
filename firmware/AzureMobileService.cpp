@@ -1,5 +1,5 @@
 #include "AzureMobileService.h"
-#include "HttpClient.h"
+#include "HttpClient/HttpClient.h"
 
 void AzureMobileService::configure(String serviceName, String serviceKey){
     _azureServiceName = serviceName;
