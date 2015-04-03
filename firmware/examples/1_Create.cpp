@@ -22,6 +22,8 @@ void loop() {
     delay(5000);
     String table = "Data";
 
+	//send JSON formatted data
+	// { "Value1":"1", "Value2":"2", "Value3":"3" }
     char buffer[100];
     snprintf(buffer, sizeof(buffer), "{\"Value1\":\"1\", \"Value2\":\"2\",\"Value\":\"3\"}");
     
