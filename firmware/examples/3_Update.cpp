@@ -1,3 +1,5 @@
+#include "AzureMobileService/AzureMobileService.h"
+
 #define MYSERVICE "myservicename"
 #define MYKEY "myservicekey"
 

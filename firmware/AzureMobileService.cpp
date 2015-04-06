@@ -64,7 +64,7 @@ String AzureMobileService::read(String table) {
 }
 
 uint8_t AzureMobileService::update(String table, String itemId, String values) {
-    /*
+
 	//The "patch" method has not been completely accepted in the HttpClient
 	//This method will not work until that has been updated
 	
@@ -92,7 +92,6 @@ uint8_t AzureMobileService::update(String table, String itemId, String values) {
     Serial.println(response.body);
 
     return response.status;
-	*/
 }
 
 uint8_t AzureMobileService::destroy(String table, String itemId) {
