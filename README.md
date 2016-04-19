@@ -1,74 +1,42 @@
-﻿# AzureMobileSpark
-Library for abstracting Azure Mobile Services REST Api for the Spark.Core.
+﻿# AzureMobileApp
+Library for abstracting Azure Mobile App Service REST Api for the particle.io devices
 
-<a name="resources" />
-## Resources ##
-https://msdn.microsoft.com/en-us/library/azure/jj710108.aspx
+*Examples*
 
-<a name="phase" />
-## Phase ##
-V1 (Ease of Interaction with Mobile Service Operations)
+*CREATE*
+```
+#include "AzureMobileService/AzureMobileService.h"
 
-- Login
-- Mobile Service Functionality
-- User required to build JSON string
+#define MYSERVICE "myservicename"
+#define MYKEY "myservicekey"
 
-````
-	ams.insert("Table", valueString);
-````
+AzureMobileService ams;
 
-V2 (Data Enhancement)
+int led = D7;
 
-- User builds key dictionary, provide simpler posting of data
-
-````
-	dictionary.Add("Key", "Value");
-	azure.insertdata("table", dictionary);
-````
-
-<a name="requirements" />
-## Requirements ##
-Functionality - Create, Read, Update, Destroy handled using HttpClient
-
-- Create(Table, JSONData)
-- Read(Table)
-- Update(Table, ID, JSONData)
-- Destroy(Table, ID)
-
-Other
-
-- Azure string builder - abstracted away to create connections to service
-- Error - receive http codes and act appropriately
-- Data - JSON payload builder
-
-
-Configuration - Mobile Service Name and Mobile Service Key
-
-<a name="implementation" />
-## Implementation ##
-
-````C#
-#include "HttpClient/HttpClient.h"
-#include "AzureMobileService/AzureMobileServices.h"
- 
-AzureMobileServices ams;
-String azureKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-String azureUrl = "MyAzureMobileServiceName";
- 
-int button = D6;
- 
 void setup() {
-	ams.configure(MYSERVICE, MYKEY);
-	pinMode(button, INPUT_PULLUP);
+    Serial.begin(9600);
+    delay(10000);
+    pinMode(led, OUTPUT);
+    ams.configure(MYSERVICE, MYKEY);
 }
- 
+
 void loop() {
-	if (digitalRead(button) == LOW) {
-		sendDataToAzure("pushed a button at: " + Time.now());
-	}
+    delay(5000);
+    String table = "Data";
+
+	//send JSON formatted data
+	// { "Value1":"1", "Value2":"2", "Value3":"3" }
+    char buffer[100];
+    snprintf(buffer, sizeof(buffer), "{\"Value1\":\"1\", \"Value2\":\"2\",\"Value\":\"3\"}");
+    
+    digitalWrite(led, HIGH);
+    
+    Serial.println("**************************************************************");
+    Serial.println("Publishing data from buffer to AMS");
+    Serial.println("**************************************************************");
+    ams.create(table, buffer);
+    
+    digitalWrite(led, LOW);
 }
- 
-void sendDataToAzure(String message) {
-	ams.create("TableName", "{\"text\":\"" + message +"\}");
-}
-````
+```
