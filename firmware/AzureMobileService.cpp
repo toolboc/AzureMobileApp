@@ -1,10 +1,9 @@
 #include "AzureMobileService.h"
 #include "HttpClient.h"
 
-void AzureMobileService::configure(String serviceName, String serviceKey){
-    _azureServiceName = serviceName;
+void AzureMobileService::configure(String serviceURL, String serviceKey){
+    _azureserviceURL = serviceURL;
     _azureKeyValue = serviceKey;
-    _domainString = _azureServiceName + ".azure-mobile.net";
     _azureKeyValue.toCharArray(_azureKeyChar, 100);
 }
 
@@ -21,7 +20,7 @@ uint8_t AzureMobileService::create(String table, String values){
     http_request_t request;
     http_response_t response;
     
-    request.hostname = _domainString;
+    request.hostname = _azureserviceURL;
     request.port = 80;
     request.path = "/tables/" + table;
     request.body = values;
@@ -49,7 +48,7 @@ String AzureMobileService::read(String table) {
     http_request_t request;
     http_response_t response;
     
-    request.hostname = _domainString;
+    request.hostname = _azureserviceURL;
     request.port = 80;
     request.path = "/tables/" + table;
 
@@ -79,7 +78,7 @@ uint8_t AzureMobileService::update(String table, String itemId, String values) {
     http_request_t request;
     http_response_t response;
     
-    request.hostname = _domainString;
+    request.hostname = _azureserviceURL;
     request.port = 80;
     request.path = "/tables/" + table + "/" + itemId;
     request.body = values;
@@ -107,7 +106,7 @@ uint8_t AzureMobileService::destroy(String table, String itemId) {
     http_request_t request;
     http_response_t response;
     
-    request.hostname = _domainString;
+    request.hostname = _azureserviceURL;
     request.port = 80;
     request.path = "/tables/" + table + "/" + itemId;
 
