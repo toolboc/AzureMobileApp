@@ -1,7 +1,7 @@
 {
-    "name": "AzureMobileService",
-    "version": "0.0.3",
+    "name": "AzureMobileApp",
+    "version": "0.0.1",
     "author": "Brian Sherwin <github:bsherwin>; Paul DeCarlo <github:toolboc>; Bill Fink <github:WhatsTheBigIT>",
     "license": "GPL",
-    "description": "Simplify getting data to Azure Mobile Services"
+    "description": "Simplify getting data to Azure Mobile App Tables"
 }
