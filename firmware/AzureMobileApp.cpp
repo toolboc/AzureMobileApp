@@ -13,7 +13,7 @@ uint8_t AzureMobileApp::create(String table, String values){
     
     http_header_t headers[] = {
         { "X-ZUMO-APPLICATION", _azureKeyChar },
-        {'ZUMO-API-VERSION', '2.0.0'), 
+        {'ZUMO-API-VERSION', '2.0.0'}, 
         { "Content-Type", "application/json" },
         { NULL, NULL } // NOTE: Always terminate headers with NULL
     };
@@ -42,7 +42,7 @@ String AzureMobileApp::read(String table) {
     
     http_header_t headers[] = {
         { "X-ZUMO-APPLICATION", _azureKeyChar },
-        {'ZUMO-API-VERSION', '2.0.0'), 
+        {'ZUMO-API-VERSION', '2.0.0'}, 
         { "Content-Type", "application/json" },
         { NULL, NULL } // NOTE: Always terminate headers with NULL
     };
@@ -73,7 +73,7 @@ uint8_t AzureMobileApp::update(String table, String itemId, String values) {
     
     http_header_t headers[] = {
         { "X-ZUMO-APPLICATION", _azureKeyChar },
-        {'ZUMO-API-VERSION', '2.0.0'), 
+        {'ZUMO-API-VERSION', '2.0.0'}, 
         { "Content-Type", "application/json" },
         { NULL, NULL } // NOTE: Always terminate headers with NULL
     };
@@ -102,7 +102,7 @@ uint8_t AzureMobileApp::destroy(String table, String itemId) {
     
     http_header_t headers[] = {
         { "X-ZUMO-APPLICATION", _azureKeyChar },
-        {'ZUMO-API-VERSION', '2.0.0'), 
+        {'ZUMO-API-VERSION', '2.0.0'}, 
         { "Content-Type", "application/json" },
         { NULL, NULL } // NOTE: Always terminate headers with NULL
     };
