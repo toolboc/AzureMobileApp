@@ -1,9 +1,9 @@
-﻿# AzureMobileApp
+#AzureMobileApp
 Library for abstracting Azure Mobile App Service REST Api for the particle.io devices
 
-*Examples*
+#Examples:
 
-*CREATE*
+##CREATE
 ```
 #include "AzureMobileService/AzureMobileService.h"
 
