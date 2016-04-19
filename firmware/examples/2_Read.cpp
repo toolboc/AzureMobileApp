@@ -1,7 +1,7 @@
 #include "AzureMobileApp/AzureMobileApp.h"
 
-#define MYSERVICE "myservicename"
-#define MYKEY "myservicekey"
+#define MYSERVICE "AzureAppServiceURL"
+#define MYKEY "AuthKey(IfEnabled)"
 
 AzureMobileApp ams;
 
