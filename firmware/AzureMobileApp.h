@@ -1,5 +1,5 @@
 #include "application.h"
-class AzureMobileService {
+class AzureMobileApp {
     private:
         String _azureServiceURL;
         String _azureKeyValue;
