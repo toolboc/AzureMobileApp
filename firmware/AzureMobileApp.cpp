@@ -1,4 +1,4 @@
-#include "AzureMobileService.h"
+#include "AzureMobileApp.h"
 #include "HttpClient.h"
 
 void AzureMobileService::configure(String serviceURL, String serviceKey){
