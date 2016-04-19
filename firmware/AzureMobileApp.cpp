@@ -2,7 +2,7 @@
 #include "HttpClient.h"
 
 void AzureMobileApp::configure(String serviceURL, String serviceKey){
-    _azureserviceURL = serviceURL;
+    _azureServiceURL = serviceURL;
     _azureKeyValue = serviceKey;
     _azureKeyValue.toCharArray(_azureKeyChar, 100);
 }
@@ -20,7 +20,7 @@ uint8_t AzureMobileApp::create(String table, String values){
     http_request_t request;
     http_response_t response;
     
-    request.hostname = _azureserviceURL;
+    request.hostname = _azureServiceURL;
     request.port = 80;
     request.path = "/tables/" + table;
     request.body = values;
@@ -48,7 +48,7 @@ String AzureMobileApp::read(String table) {
     http_request_t request;
     http_response_t response;
     
-    request.hostname = _azureserviceURL;
+    request.hostname = _azureServiceURL;
     request.port = 80;
     request.path = "/tables/" + table;
 
@@ -78,7 +78,7 @@ uint8_t AzureMobileApp::update(String table, String itemId, String values) {
     http_request_t request;
     http_response_t response;
     
-    request.hostname = _azureserviceURL;
+    request.hostname = _azureServiceURL;
     request.port = 80;
     request.path = "/tables/" + table + "/" + itemId;
     request.body = values;
@@ -106,7 +106,7 @@ uint8_t AzureMobileApp::destroy(String table, String itemId) {
     http_request_t request;
     http_response_t response;
     
-    request.hostname = _azureserviceURL;
+    request.hostname = _azureServiceURL;
     request.port = 80;
     request.path = "/tables/" + table + "/" + itemId;
 
