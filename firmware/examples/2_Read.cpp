@@ -1,9 +1,9 @@
-#include "AzureMobileService/AzureMobileService.h"
+#include "AzureMobileApp/AzureMobileApp.h"
 
 #define MYSERVICE "myservicename"
 #define MYKEY "myservicekey"
 
-AzureMobileService ams;
+AzureMobileApp ams;
 
 int led = D7;
 
