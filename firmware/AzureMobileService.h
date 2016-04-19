@@ -1,10 +1,9 @@
 #include "application.h"
 class AzureMobileService {
     private:
-        String _azureServiceName;
+        String _azureServiceURL;
         String _azureKeyValue;
         char _azureKeyChar [100];
-        String _domainString;
         TCPClient _client;
     
     public:
