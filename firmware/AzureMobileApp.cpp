@@ -1,13 +1,13 @@
 #include "AzureMobileApp.h"
 #include "HttpClient.h"
 
-void AzureMobileService::configure(String serviceURL, String serviceKey){
+void AzureMobileApp::configure(String serviceURL, String serviceKey){
     _azureserviceURL = serviceURL;
     _azureKeyValue = serviceKey;
     _azureKeyValue.toCharArray(_azureKeyChar, 100);
 }
 
-uint8_t AzureMobileService::create(String table, String values){
+uint8_t AzureMobileApp::create(String table, String values){
     
     HttpClient http;
     
@@ -35,7 +35,7 @@ uint8_t AzureMobileService::create(String table, String values){
     return response.status;
 }
 
-String AzureMobileService::read(String table) {
+String AzureMobileApp::read(String table) {
     
     HttpClient http;
     
@@ -62,7 +62,7 @@ String AzureMobileService::read(String table) {
     return response.body;
 }
 
-uint8_t AzureMobileService::update(String table, String itemId, String values) {
+uint8_t AzureMobileApp::update(String table, String itemId, String values) {
 
 	//The "patch" method has not been completely accepted in the HttpClient
 	//This method will not work until that has been updated
@@ -93,7 +93,7 @@ uint8_t AzureMobileService::update(String table, String itemId, String values) {
     return response.status;
 }
 
-uint8_t AzureMobileService::destroy(String table, String itemId) {
+uint8_t AzureMobileApp::destroy(String table, String itemId) {
         
     HttpClient http;
     
