@@ -21,7 +21,7 @@ void loop() {
 	//send JSON formatted data
 	// { "Value1":"1", "Value2":"2", "Value3":"3" }
 	char buffer[100];
-	snprintf(buffer, sizeof(buffer), "{\"Value1\":\"1\", \"Value2\":\"2\",\"Value\":\"3\"}");
+	snprintf(buffer, sizeof(buffer), "{\"Value1\":\"1\", \"Value2\":\"2\",\"Value3\":\"3\"}");
 
 	digitalWrite(led, HIGH);
 
@@ -31,7 +31,7 @@ void loop() {
 	Serial.println("**************************************************************");
 	Serial.println("Updating itemId " + itemId + " in " + table);
 	Serial.println("**************************************************************");
-	snprintf(buffer, sizeof(buffer), "{\"Value1\":\"4\", \"Value2\":\"5\",\"Value\":\"6\"}");
+	snprintf(buffer, sizeof(buffer), "{\"Value1\":\"4\", \"Value2\":\"5\",\"Value3\":\"6\"}");
 	ams.update(table, itemId, buffer);
 
 	digitalWrite(led, LOW);
