@@ -21,7 +21,7 @@ void loop() {
 	//send JSON formatted data
 	// { "Value1":"1", "Value2":"2", "Value3":"3" }
     char buffer[100];
-    snprintf(buffer, sizeof(buffer), "{\"Value1\":\"1\", \"Value2\":\"2\",\"Value\":\"3\"}");
+    snprintf(buffer, sizeof(buffer), "{\"Value1\":\"1\", \"Value2\":\"2\",\"Value3\":\"3\"}");
     
     digitalWrite(led, HIGH);
     
