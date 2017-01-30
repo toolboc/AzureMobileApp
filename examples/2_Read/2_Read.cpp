@@ -1,4 +1,4 @@
-#include "AzureMobileApp/AzureMobileApp.h"
+#include "AzureMobileApp.h"
 
 #define MYSERVICE "AzureAppServiceURL"
 #define MYKEY "AuthKey(IfEnabled)"
@@ -20,13 +20,10 @@ void loop() {
 
     digitalWrite(led, HIGH);
     
-    //The itemId comes from the ID column in your data table
-    String itemId = "1334FB57-293F-4941-BC12-7704D09B9C82";
+    Serial.println("**************************************************************");
+    Serial.println("Reading data from " + table);
+    Serial.println("**************************************************************");
+    String queryPayload = ams.read(table);
     
-    Serial.println("**************************************************************");
-    Serial.println("Deleting itemId " + itemId + " in " + table);
-    Serial.println("**************************************************************");
-    ams.destroy(table, itemId);
-
     digitalWrite(led, LOW);
 }

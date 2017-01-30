@@ -1,4 +1,4 @@
-#include "AzureMobileApp/AzureMobileApp.h"
+#include "AzureMobileApp.h"
 
 #define MYSERVICE "AzureAppServiceURL"
 #define MYKEY "AuthKey(IfEnabled)"
