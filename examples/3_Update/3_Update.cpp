@@ -3,7 +3,7 @@
 #define MYSERVICE "AzureAppServiceURL"
 #define MYKEY "AuthKey(IfEnabled)"
 
-AzureMobileApp ams;
+AzureMobileApp ama;
 
 int led = D7;
 
@@ -11,7 +11,7 @@ void setup() {
 	Serial.begin(9600);
 	delay(10000);
 	pinMode(led, OUTPUT);
-	ams.configure(MYSERVICE, MYKEY);
+	ama.configure(MYSERVICE, MYKEY);
 }
 
 void loop() {
@@ -32,7 +32,7 @@ void loop() {
 	Serial.println("Updating itemId " + itemId + " in " + table);
 	Serial.println("**************************************************************");
 	snprintf(buffer, sizeof(buffer), "{\"Value1\":\"4\", \"Value2\":\"5\",\"Value3\":\"6\"}");
-	ams.update(table, itemId, buffer);
+	ama.update(table, itemId, buffer);
 
 	digitalWrite(led, LOW);
 }
